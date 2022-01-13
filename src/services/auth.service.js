@@ -1,6 +1,6 @@
 export default {
     register(user) {
-        return fetch("http://localhost:3131/api/v1/users/register", {
+        return fetch(`${process.env.API_URI}/users/register`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -9,7 +9,7 @@ export default {
           }).then((res) => res.json())
     },
     login(user) {
-        return fetch("http://localhost:3131/api/v1/users/login", {
+        return fetch(`${process.env.API_URI}/v1/users/login`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -18,7 +18,7 @@ export default {
           }).then((res) => res.json())
     },
     getUser(token) {
-        return fetch('http://localhost:3131/api/v1/users/get-user', {
+        return fetch(`${process.env.API_URI}/users/get-user`, {
             headers: {
                 "authorization":token
             }
@@ -26,7 +26,7 @@ export default {
         .then(res => res.json())
     },
     updateUser(token, user) {
-        return fetch('http://localhost:3131/api/v1/users/update-user', {
+        return fetch(`${process.env.API_URI}/users/update-user`, {
             method: "PUT",
             headers: {
                 "authorization": token,
@@ -37,7 +37,7 @@ export default {
         .then(res => res.json())
     },
     verifyToken(token) {
-        return fetch('http://localhost:3131/api/v1/users/verifytoken', {
+        return fetch(`${process.env.API_URI}/users/verifytoken`, {
             headers: {
                 "authorization":token
             }

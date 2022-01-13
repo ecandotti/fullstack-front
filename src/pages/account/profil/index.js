@@ -24,7 +24,8 @@ const Index = () => {
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {    const token = localStorage.getItem("token");
+  useEffect(() => {
+    const token = localStorage.getItem("token");
     authService
       .getUser(token)
       .then((data) => {

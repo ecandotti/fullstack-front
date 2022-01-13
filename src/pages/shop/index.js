@@ -6,7 +6,7 @@ import { useQuery } from "@apollo/react-hooks";
 const Index = () => {
 
     const { loading, error, data } = useQuery(getProducts);
-    
+
     if (loading) {
         return "loading...";
     }
