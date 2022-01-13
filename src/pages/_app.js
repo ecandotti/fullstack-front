@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
       <MainLayout>
-      <Component {...pageProps} />
+        <Component {...pageProps} />
       </MainLayout>
     </ApolloProvider>
   )
