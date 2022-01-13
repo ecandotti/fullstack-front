@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
+
 import TitlePage from "../../../components/UI/Title/TitlePage";
 import authService from "../../../services/auth.service";
 import Input from "../../../components/UI/Input/Input";
 import styles from "./index.module.scss";
 import Message from "../../../components/UI/Message/Message";
 import withAuth from "../../../HOC/withAuth";
+
 const Index = () => {
   const [user, setUser] = useState({});
-    const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");

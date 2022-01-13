@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from "next/link";
 import LogoImg from "../../../public/nike-logo.png";
 import styles from "./Footer.module.scss";
 
