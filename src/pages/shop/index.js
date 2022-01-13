@@ -1,8 +1,11 @@
 import React from 'react';
+import { useQuery } from "@apollo/react-hooks";
 
 import { getProducts } from "../../graphql/queries/products";
-import { useQuery } from "@apollo/react-hooks";
+
 import ProductCard from '../../components/shop/ProductCard';
+
+import style from './index.module.scss';
 
 const Index = () => {
 
@@ -20,7 +23,7 @@ const Index = () => {
     console.log(data);
 
     return (
-        <div className="shop__grid">
+        <div className={style.flex}>
             {
                 data.getProducts.map((product) => (
                     <ProductCard

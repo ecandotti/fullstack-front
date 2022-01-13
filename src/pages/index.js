@@ -1,7 +1,12 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import Titlepage from '../components/UI/Title/TitlePage'
 
 export default function Home() {
+  const router = useRouter()
+
+  const { query: { success } } = router
+
   return (
     <div className="container">
       <Head>
@@ -11,6 +16,7 @@ export default function Home() {
       </Head>
       <main>
         <Titlepage title="home"/>
+        {success && "Merci pour le payment"}
       </main>
     </div>
   )
