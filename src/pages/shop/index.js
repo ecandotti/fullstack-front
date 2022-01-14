@@ -27,10 +27,8 @@ const Index = () => {
             {
                 data.getProducts.map((product) => (
                     <ProductCard
-                        title={product.title}
-                        description={product.description}
-                        price={product.price}
                         id={product.id}
+                        img_uri={product.img_uri}
                         key={product.id} />
                 ) )
             }

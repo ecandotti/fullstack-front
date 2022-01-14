@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+import { useUser } from '../../contexts/user.context';
 import authService from "../../services/auth.service";
 import TitlePage from "../../components/UI/Title/TitlePage";
 import Message from "../../components/UI/Message/Message";
@@ -8,6 +9,7 @@ import styles from "./index.module.scss";
 
 const Index = () => {
   const router = useRouter();
+  const { setCurrentUser } = useUser();
   const [user, setUser] = useState({});
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -23,6 +25,10 @@ const Index = () => {
           return false;
         }
         localStorage.setItem("token", data.token);
+        setCurrentUser({
+          auth: data.auth,
+          token: data.token
+        })
         router.push("/account/profil");
       })
       .catch((err) => {

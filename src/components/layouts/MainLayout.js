@@ -10,14 +10,14 @@ const Mainlayout = ({children}) => {
         <>
             <header className={styles.header__main}>
                 <HeaderLogo />
-                <HeaderMenu/>
-                <HeaderToolbar/>
+                <HeaderMenu />
+                <HeaderToolbar />
             </header>
             <main>
                 {children}
             </main>
             <footer>
-                <Footer/>
+                <Footer />
             </footer>
         </>
     );

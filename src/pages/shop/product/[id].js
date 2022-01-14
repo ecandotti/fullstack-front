@@ -9,7 +9,7 @@ import style from './id.module.scss';
 
 const Product = () => {
     const router = useRouter()
-    const { cart, setCart, articleCount, setArticleCount } = useCart()
+    const { cart, setCart } = useCart()
 
     const { query: { id } } = router
 
@@ -31,11 +31,7 @@ const Product = () => {
 
         const newArticle = data.getProduct
 
-        setCart(prevState => {
-            return {...prevState, newArticle}
-        })
-
-        console.log('Product added success', cart);
+        setCart([...cart, newArticle]);
     }
 
     return (
@@ -47,7 +43,7 @@ const Product = () => {
                 <h2>{data.getProduct.title}</h2>
                 <img 
                     className={style.img}
-                    src='https://64.media.tumblr.com/bff49010314681f9e518d47bf7f23d84/a9a443f7114466b7-ed/s400x600/35165ebd5f46efe48858157e6ffaa7e8e2eac927.png'
+                    src={data.getProduct.img_uri}
                     alt='clothe' />
                 <p>{data.getProduct.description}</p>
                 <div className={style.priceBlock}>

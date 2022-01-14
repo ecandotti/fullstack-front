@@ -9,7 +9,7 @@ export default {
           }).then((res) => res.json())
     },
     login(user) {
-        return fetch(`${process.env.API_URI}/v1/users/login`, {
+        return fetch(`${process.env.API_URI}/users/login`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

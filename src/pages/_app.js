@@ -4,19 +4,37 @@ import { ApolloProvider } from "@apollo/client";
 import client from "../apollo/apollo-client";
 
 import { CartContext } from '../contexts/cart.context'
-import { useState } from 'react';
+import { UserContext } from '../contexts/user.context'
+import { useEffect, useState } from 'react';
+import authService from '../services/auth.service';
 
 function MyApp({ Component, pageProps }) {
+  const [currentUser, setCurrentUser] = useState({})
   const [cart, setCart] = useState([])
-  const [articleCount, setArticleCount] = useState(0)
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    if (token) {
+      authService.getUser(token)
+      .then((data) => {
+        if (data._id) {
+          setCurrentUser({
+            auth: true
+          })
+        }
+      })
+    }
+  }, [])
 
   return (
     <ApolloProvider client={client}>
-      <CartContext.Provider value={{cart, setCart, articleCount, setArticleCount}}>
-        <MainLayout>
-          <Component {...pageProps} />
-        </MainLayout>
-      </CartContext.Provider>
+      <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+        <CartContext.Provider value={{cart, setCart }}>
+          <MainLayout>
+            <Component {...pageProps} />
+          </MainLayout>
+        </CartContext.Provider>
+      </UserContext.Provider>
     </ApolloProvider>
   )
 }

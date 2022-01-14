@@ -4,8 +4,19 @@
     padding: 1rem;
 }
 
+.listItem {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem 0;
+}
+
 .title {
     text-align: center;
+}
+
+.total {
+    text-align: center;
+    font-weight: bold; 
 }
 
 .paymentProcessBtn {
@@ -13,4 +24,5 @@
     @extend .btn-black;
 
     margin-top: 1rem;
+    width: 100%;
 }

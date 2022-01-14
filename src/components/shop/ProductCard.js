@@ -3,7 +3,7 @@ import React from 'react';
 
 import style from './ProductCard.module.scss';
 
-const ProductCard = ({ id, title, description, price }) => {
+const ProductCard = ({ id }) => {
     return (
         <div className={style.items}>
             <Link href={{
