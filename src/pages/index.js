@@ -17,7 +17,7 @@ export default function Home() {
       </Head>
       <main>
         <Titlepage title="home"/>
-        {success && "Payment sucess"}
+        {success && "Payment success"}
         {canceled && "Payment canceled"}
       </main>
     </div>
