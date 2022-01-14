@@ -5,6 +5,7 @@ export const getProducts = gql`
         getProducts {
             id,
             title,
+            img_uri,
             price,
             description
         }
