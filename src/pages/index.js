@@ -6,6 +6,7 @@ export default function Home() {
   const router = useRouter()
 
   const { query: { success } } = router
+  const { query: { canceled } } = router
 
   return (
     <div className="container">
@@ -16,7 +17,8 @@ export default function Home() {
       </Head>
       <main>
         <Titlepage title="home"/>
-        {success && "Merci pour le payment"}
+        {success && "Payment sucess"}
+        {canceled && "Payment canceled"}
       </main>
     </div>
   )
